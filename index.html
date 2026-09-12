@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Shadow Duel Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- ANA MENÜ -->
+        <div id="menu-screen" class="screen">
+            <h1>SHADOW DUEL</h1>
+            <p>Arkadaşını çağır, gölgelerin arasında kapış!</p>
+            <button onclick="showScreen('room-screen')">Online Maç (Oda Kur / Katıl)</button>
+        </div>
+
+        <!-- ODA KURMA EKRANI -->
+        <div id="room-screen" class="screen hidden">
+            <h2>Oda İşlemleri</h2>
+            <button onclick="createRoom()">Oda Kur</button>
+            <br><br>
+            <input type="text" id="room-code-input" placeholder="Oda Kodunu Gir">
+            <button onclick="joinRoom()">Odaya Katıl</button>
+            <p id="room-status"></p>
+        </div>
+
+        <!-- KARAKTER SEÇİM EKRANI -->
+        <div id="char-screen" class="screen hidden">
+            <h2>Dövüşçünü Seç</h2>
+            <div class="char-grid">
+                <div class="char-card" onclick="selectCharacter('Katana Ustası')">
+                    <img src="watermarked_img_13691549392823200161.png" alt="Katana">
+                    <h3>Katana Ustası</h3>
+                </div>
+                <div class="char-card" onclick="selectCharacter('Koca Asa')">
+                    <img src="watermarked_img_13393527954979145976.png" alt="Asa">
+                    <h3>Koca Asa</h3>
+                </div>
+                <div class="char-card" onclick="selectCharacter('Çift Bıçak')">
+                    <img src="watermarked_img_13168883548338454129.png" alt="Bıçak">
+                    <h3>Çift Bıçak</h3>
+                </div>
+                <div class="char-card" onclick="selectCharacter('Nunchaku')">
+                    <img src="watermarked_img_6067349826556927208.png" alt="Nunchaku">
+                    <h3>Nunchaku</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- OYUN ALANI -->
+        <div id="game-screen" class="screen hidden">
+            <div id="hud">
+                <span id="p1-info">Oyuncu 1: Seçiliyor...</span>
+                <span>VS</span>
+                <span id="p2-info">Oyuncu 2: Bekleniyor...</span>
+            </div>
+            <canvas id="gameCanvas" width="800" height="450"></canvas>
+            <p class="controls-hint">Hareket: Yön Tuşları | Vuruş: Boşluk / F</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
